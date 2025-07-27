@@ -1,0 +1,17 @@
+aws-feedback-form/
+├── Frontend/
+   ├── Html-Code/
+       ├── feedbackInput.html
+       ├── feedbackOutput.html
+├── Backend/
+   ├── Java-Code/
+       ├── API-GET-Feedback
+            ├── /src/main/java/com/example/GetFeedbackHandler.java
+            ├── target/
+            ├── pom.xml
+       ├── API-POST-Feedback
+            ├── /src/main/java/com/example/FeedbackHandler.java
+            ├── target/
+            ├── pom.xml
+├── ScreenShots/
+└── README.md

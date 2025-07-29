@@ -25,7 +25,6 @@ public class GetFeedbackHandler implements RequestHandler<Map<String, Object>, M
         Map<String, Object> response = new HashMap<>();
 
         try {
-            // Scan the entire DynamoDB table
             ScanRequest scanRequest = ScanRequest.builder()
                     .tableName(TABLE_NAME)
                     .build();
@@ -46,10 +45,8 @@ public class GetFeedbackHandler implements RequestHandler<Map<String, Object>, M
                 feedbackList.add(feedback);
             }
 
-            // Convert the list to JSON string
             String jsonResponse = objectMapper.writeValueAsString(feedbackList);
 
-            // Success response with CORS header
             response.put("statusCode", 200);
             response.put("body", jsonResponse);
             response.put("headers", Map.of(
@@ -60,7 +57,6 @@ public class GetFeedbackHandler implements RequestHandler<Map<String, Object>, M
         } catch (Exception e) {
             context.getLogger().log("Error: " + e.getMessage());
 
-            // Error response with CORS header
             response.put("statusCode", 500);
             response.put("body", "{\"message\": \"Internal server error\"}");
             response.put("headers", Map.of(
